@@ -13,11 +13,11 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
-app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+# app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 # app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///' + os.path.join(base_dir, 'my_login.db')
-# app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
-# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SECRET_KEY"] = '5e0b18fd5de07e49f80cb4f8'
 
 # postgres://pipcut_user:Ng626gxN13C8BGaVeKmJQj5jnOWJ9g72@dpg-ciar7ll9aq007teh7370-a.oregon-postgres.render.com/pipcut
@@ -47,14 +47,6 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"User <{self.username}>"
 
-# class BlogPost(db.Model):
-#     """This is the blogpost database model"""
-#     id = db.Column(db.Integer(), primary_key=True)
-#     title = db.Column(db.String(50))
-#     subtitle = db.Column(db.String(50))
-#     date_posted = db.Column(db.DateTime)
-#     content = db.Column(db.Text)
-#     author = db.Column(db.Text)
    
 
 @login_manager.user_loader
