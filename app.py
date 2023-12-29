@@ -22,6 +22,7 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URI")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
+<<<<<<< HEAD
 
 # app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
 #     basedir, "data.sqlite"
@@ -33,6 +34,14 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 # app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 # app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 # app.config["SECRET_KEY"] = "5e0b18fd5de07e49f80cb4f8"
+=======
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+# app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+# app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///' + os.path.join(base_dir, 'my_login.db')
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SECRET_KEY"] = '5e0b18fd5de07e49f80cb4f8'
+>>>>>>> 1703aba2d1e96e65b29c5468793cdffb0a988956
 
 # postgres://pipcut_user:Ng626gxN13C8BGaVeKmJQj5jnOWJ9g72@dpg-ciar7ll9aq007teh7370-a.oregon-postgres.render.com/pipcut
 """
@@ -61,6 +70,7 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"User <{self.username}>"
 
+<<<<<<< HEAD
 
 # class BlogPost(db.Model):
 #     """This is the blogpost database model"""
@@ -71,6 +81,9 @@ class User(db.Model, UserMixin):
 #     content = db.Column(db.Text)
 #     author = db.Column(db.Text)
 
+=======
+   
+>>>>>>> 1703aba2d1e96e65b29c5468793cdffb0a988956
 
 @login_manager.user_loader
 def user_loader(id):
